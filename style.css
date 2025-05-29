@@ -3,16 +3,26 @@ body {
   font-family: "Cairo", sans-serif;
   background: #f2f2f2;
   direction: rtl;
+  transition: background 0.3s, color 0.3s;
+}
+
+body.dark {
+  background: #121212;
+  color: #f0f0f0;
 }
 
 .chat-container {
   max-width: 600px;
   margin: auto;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  background: #fff;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  background: white;
+  position: relative;
+}
+
+body.dark .chat-container {
+  background: #1e1e1e;
 }
 
 .chat-header {
@@ -20,7 +30,9 @@ body {
   background: #1976d2;
   color: white;
   font-size: 18px;
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .chat-box {
@@ -29,12 +41,21 @@ body {
   overflow-y: auto;
   display: flex;
   flex-direction: column;
+  scroll-behavior: smooth;
 }
 
 .chat-input {
   display: flex;
   padding: 10px;
   border-top: 1px solid #ccc;
+  background: #fff;
+  position: sticky;
+  bottom: 0;
+  z-index: 2;
+}
+
+body.dark .chat-input {
+  background: #2c2c2c;
 }
 
 .chat-input input {
@@ -86,4 +107,13 @@ body {
   font-size: 12px;
   color: gray;
   margin-top: 5px;
+}
+
+body.dark .bubble {
+  background: #37474f;
+  color: white;
+}
+
+body.dark .other .bubble {
+  background: #5c4033;
 }
